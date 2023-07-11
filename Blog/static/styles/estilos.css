@@ -1,0 +1,18 @@
+.logo img {
+  width: 60px;
+  height: 60px;
+}
+
+.findepagina {
+  text-align: center;
+  width: 100%;
+  background-image: linear-gradient(#c0bcbc, rgba(121, 95, 95, 0.8235294118));
+}
+.findepagina .redes {
+  font-size: 25px;
+}
+.findepagina .iconos {
+  display: grid;
+  grid-template-columns: 75px 75px 75px;
+  justify-content: center;
+}/*# sourceMappingURL=estilos.css.map */

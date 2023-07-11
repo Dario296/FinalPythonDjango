@@ -1,0 +1,20 @@
+.logo img {
+    width: 60px;
+    height: 60px;
+}
+
+.findepagina {
+	text-align: center;
+	width: 100%;
+	background-image: linear-gradient(#c0bcbc, #795f5fd2);
+
+    .redes {
+		font-size: 25px;
+	}
+
+	.iconos {
+		display: grid;
+		grid-template-columns: 75px 75px 75px;
+		justify-content: center;
+	}
+}
