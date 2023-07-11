@@ -11,7 +11,7 @@
     <li>Nombre: {{request.user.first_name}}</li>
     <li>Apellido: {{request.user.last_name}}</li>
     <li>Email: {{request.user.email}}</li>
-    <li>Fecha de nacimiento: {{request.user.infoextra.fechaNacimiento}}</li>
+    <li>Fecha de nacimiento: {% if request.user.infoextra.fechaNacimiento %}{{request.user.infoextra.fechaNacimiento}}{% endif %}</li>
     <li>Avatar: {% if request.user.infoextra.avatar %}<img src={{request.user.infoextra.avatar.url}} alt="Foto Perfil">{% endif %}</li>
     
 </ul>

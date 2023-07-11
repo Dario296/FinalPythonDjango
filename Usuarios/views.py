@@ -14,7 +14,7 @@ def registrarse(request):
         formulario = CrearUsuario(request.POST)
         if formulario.is_valid():
             formulario.save()
-            return redirect('inicio')
+            return redirect('ingresar')
         else:
             return render(request, 'registro/registro.html', {'formulario': formulario})
     
@@ -62,7 +62,7 @@ def editarPerfil(request):
                 info_extra_user.save()
             
             formulario.save()
-            return redirect('inicio')
+            return redirect('perfil')
     else:
         formulario = EditarPerfil(initial={'avatar': info_extra_user.avatar}, instance=request.user)
         
@@ -71,7 +71,7 @@ def editarPerfil(request):
 class CambiarPassword(LoginRequiredMixin, View):
     template_name = 'registro/editarPass.html'
     form_class = CambiarPasswordForm
-    success_url = reverse_lazy('inicio')
+    success_url = reverse_lazy('perfil')
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name, {'form': self.form_class})
