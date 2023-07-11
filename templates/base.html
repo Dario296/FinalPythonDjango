@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+		{% load static %}
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		{% block head_title %}
+		
+		{% endblock head_title %}
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+		<link rel="stylesheet" href={% static "./styles/estilos.css" %}>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-lg bg-body-tertiary">
+			<div class="container-fluid">
+				<a class="logo" href={% url 'inicio' %}><img src={% static "./imagenes/logo.png" %} alt="logo"></a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+						<li class="nav-item">
+							<a class="nav-link" aria-current="page" href={% url 'inicio' %}>Inicio</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href={% url 'nosotros' %}>Sobre Nosotros</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href={% url 'blog' %}>Blog</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Contacto</a>
+						</li>
+						{% block buscador %}
+						{% endblock buscador %}
+					</ul>
+					<ul class="navbar-nav me-2 mb-2 mb-lg-0">
+						{% if request.user.is_authenticated %}
+						{% if request.user.infoextra.avatar %}
+							<div>
+								<img src={{request.user.infoextra.avatar.url}} alt="Foto Perfil" width=40px height=40px>
+							</div>
+						{% endif %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{request.user}}</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href={% url 'perfil' %}>Mi Perfil</a></li>
+								<li><a class="dropdown-item" href={% url 'salir' %}>Salir</a></li>
+							</ul>
+						</li>
+						{% else %}
+						<li class="nav-item">
+							<a class="nav-link" href={% url 'ingresar' %}>Ingresar</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href={% url 'registrarse' %}>Registrarse</a>
+						</li>						
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+		</nav>
+		{% block contenido %}
+
+		{% endblock contenido %}
+		<footer class="findepagina">
+			<h3 class="redes">Seguinos en nuestras redes</h3>
+			<div class="iconos">
+				<div>
+					<a href="https://www.instagram.com/" target="_blank"><img src={% static "./imagenes/instagram.png" %}  width="40px" alt="instagram"></a>
+				</div>
+				<div>
+					<a href="https://www.facebook.com/" target="_blank"><img src={% static "./imagenes/fb.png" %}  width="40px" alt="facebook"></a>
+				</div>
+				<div>
+					<a href="https://web.whatsapp.com" target="_blank"><img src={% static "./imagenes/whatsapp.png" %} width="40px" alt="whastapp"></a>
+				</div>
+			</div>
+		</footer>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+	</body>
+</html>
