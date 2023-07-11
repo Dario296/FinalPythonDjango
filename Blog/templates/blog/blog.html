@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}
+<title>Blog</title>
+{% endblock head_title %}
+
+{% block buscador %}
+    <li>
+    	<form class="d-flex" role="search">
+    		<input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
+    		<button class="btn btn-outline-success" type="submit">Buscar</button>
+    	</form>
+    </li>
+{% endblock buscador %}
+
+{% block contenido %}
+{% if post %}
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quia facilis consequuntur dolorum ea eius consequatur qui optio porro quod nobis, neque obcaecati perspiciatis corrupti voluptatum, quos perferendis est quis.</p>
+{% else %}
+<h2>No hay datos cargados</h2>
+<button><a href={% url 'crear' %}>Crear nuevo post</a></button>
+{% endif %}
+{% endblock contenido %}

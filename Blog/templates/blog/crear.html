@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}
+<title>Crear Post</title>
+{% endblock head_title %}
+
+{% block contenido %}
+<form action={% url 'crear' %}, method= "post">
+    {% csrf_token %}
+    {{ form }}
+</form>
+{% endblock contenido %}
