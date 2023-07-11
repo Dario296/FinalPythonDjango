@@ -40,3 +40,52 @@ def ingresar(request):
         
     formulario = AuthenticationForm()
     return render(request, 'ingresar/ingresar.html', {'formulario': formulario})
+
+@login_required
+def verPerfil(request):
+    return render(request, 'registro/perfil.html')
+
+@login_required
+def editarPerfil(request): 
+    info_extra_user = request.user.infoextra
+    if request.method == 'POST':
+        formulario = EditarPerfil(request.POST, request.FILES, instance=request.user)
+        if formulario.is_valid():
+            
+            avatar = formulario.cleaned_data.get('avatar')
+            fechaNacimiento = formulario.cleaned_data.get('fechaNacimiento')
+            if fechaNacimiento:
+                info_extra_user.fechaNacimiento = fechaNacimiento
+                info_extra_user.save()
+            if avatar:
+                info_extra_user.avatar = avatar
+                info_extra_user.save()
+            
+            formulario.save()
+            return redirect('inicio')
+    else:
+        formulario = EditarPerfil(initial={'avatar': info_extra_user.avatar}, instance=request.user)
+        
+    return render(request, 'registro/editar.html', {'formulario': formulario})
+
+class CambiarPassword(LoginRequiredMixin, View):
+    template_name = 'registro/editarPass.html'
+    form_class = CambiarPasswordForm
+    success_url = reverse_lazy('inicio')
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name, {'form': self.form_class})
+
+    def post(self, request, *args, **kwargs):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            user = User.objects.filter(id=request.user.id)
+            if user.exists():
+                user = user.first()
+                user.set_password(form.cleaned_data.get('password1'))
+                user.save()
+                return redirect(self.success_url)
+            return redirect(self.success_url)
+        else:
+            form = self.form_class(request.POST)
+            return render(request, self.template_name, {'form': form})

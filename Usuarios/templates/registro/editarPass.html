@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}
+<title>Editar Contraseña</title>
+{% endblock head_title %}
+
+{% block contenido %}
+<form action={% url 'editarPassword' %} method= "post">
+    {% csrf_token %}
+    {{ form }}
+    <button>Guardar Cambios</button>
+</form>
+{% endblock contenido %}

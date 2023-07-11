@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}
+<title>Editar Perfil</title>
+{% endblock head_title %}
+
+{% block contenido %}
+<form action={% url 'editarPerfil' %} method= "post" enctype='multipart/form-data'>
+    {% csrf_token %}
+    {{ formulario }}
+    <button>Guardar Cambios</button>
+</form>
+<button><a href={% url 'editarPassword' %}>Editar contraseña</a></button>
+{% endblock contenido %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}
+<title>Registro</title>
+{% endblock head_title %}
+
+{% block contenido %}
+<form action={% url 'registrarse' %} method= "post">
+    {% csrf_token %}
+    {{ formulario }}
+    <button>Registrarse</button>
+</form>
+{% endblock contenido %}
