@@ -3,6 +3,10 @@ from django.views.generic.list import ListView
 from Blog.models import Post
 from Blog.formulario import CrearPublicacion
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import UpdateView
+from django.urls import reverse_lazy
 
 def inicio(request):
     return render ( request, 'inicio/inicio.html')
@@ -30,3 +34,13 @@ def crear(request):
     
     formulario = CrearPublicacion()
     return render(request, 'blog/crear.html', {'formulario': formulario})
+
+class verMas(LoginRequiredMixin, DetailView):
+    model = Post
+    template_name = 'blog/verMas.html'
+    
+class modificar(LoginRequiredMixin, UpdateView):
+    model = Post
+    template_name = 'blog/modificar.html'
+    fields = ['titulo', 'subtitulo', 'cuerpo', 'imagen']
+    success_url = reverse_lazy('blog')

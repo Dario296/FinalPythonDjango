@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}
+<title>Ver más</title>
+{% endblock head_title %}
+
+{% block contenido %}
+<div>
+    <p>Nuevo Post de: {{post.autor}} </p>
+    <h3>{{ post.titulo }}</h3>
+    {% if post.subtitulo %}
+        <h5>{{ post.subtitulo }}</h5>
+    {% endif %}
+    <p> {{post.cuerpo | safe}} </p>   
+    {% if post.imagen %}
+        <img src={{ post.imagen.url }} alt="Imagen" height='300px'>
+    {% endif %} 
+    <button>
+        <a href={% url 'blog' %}>Volver</a>
+    </button>
+</div>
+{% endblock contenido %}

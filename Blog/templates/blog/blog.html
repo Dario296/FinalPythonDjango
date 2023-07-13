@@ -24,17 +24,17 @@
     {% if pt.subtitulo %}
         <h5>{{ pt.subtitulo }}</h5>
     {% endif %}
-    
-    {% comment %} {% url '' pt.id %} {% endcomment %}
     <button>
-        <a href="#">Ver mas</a>
+        <a href={% url 'verMas' pt.id %}>Ver mas</a>
     </button>
+    {% if request.user == pt.autor %}
     <button>
-        <a href="#">Modificar</a>
+        <a href={% url 'modificar' pt.id %}>Modificar</a>
     </button>
     <button>
         <a href="#">Eliminar</a>
     </button>
+    {% endif %}
 </div>
 {% endfor %}
 {% else %}
