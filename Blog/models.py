@@ -1,10 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 class Post(models.Model):
     titulo = models.CharField(max_length = 30)
-    subtitulo = models.CharField(max_length = 50)
-    cuerpo = models.TextField(default = '')
-    imagen = models.ImageField()
+    subtitulo = models.CharField(max_length = 50, null=True, blank=True)
+    cuerpo = RichTextField(default = '')
+    imagen = models.ImageField(null=True, blank=True)
     fecha = models.DateField(auto_now_add = True)
     autor = models.OneToOneField(User, on_delete = models.CASCADE)

@@ -9,5 +9,7 @@
 <form action={% url 'crear' %}, method= "post">
     {% csrf_token %}
     {{ form }}
+    {{ form.media }}
+    <button>Publicar</button>
 </form>
 {% endblock contenido %}

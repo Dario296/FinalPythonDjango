@@ -16,7 +16,21 @@
 
 {% block contenido %}
 {% if post %}
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda quia facilis consequuntur dolorum ea eius consequatur qui optio porro quod nobis, neque obcaecati perspiciatis corrupti voluptatum, quos perferendis est quis.</p>
+{% for pt in post %}
+<li>
+    {{ pt.titulo }}
+    <button>
+        <a href={% url '' pt.id %}>Ver mas</a>
+    </button>
+    <button>
+        <a href={% url '' pt.id %}>Modificar</a>
+    </button>
+    <button>
+        <a href={% url '' pt.id %}>Eliminar</a>
+    </button>
+</li>
+{% endfor %}
+
 {% else %}
 <h2>No hay datos cargados</h2>
 <button><a href={% url 'crear' %}>Crear nuevo post</a></button>
