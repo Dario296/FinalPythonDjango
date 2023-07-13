@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic.list import ListView
 from Blog.models import Post
 from Blog.formulario import CrearPublicacion
+from django.contrib.auth.decorators import login_required
 
 def inicio(request):
     return render ( request, 'inicio/inicio.html')
@@ -14,9 +15,10 @@ class listar(ListView):
     template_name = 'blog/blog.html'
     context_object_name = 'post'
     
+@login_required
 def crear(request):
     if request.method == 'POST':
-        formulario = CrearPublicacion(request.POST)
+        formulario = CrearPublicacion(request.POST, request.FILES)
         if formulario.is_valid():
             info = formulario.cleaned_data
             usuario = request.user

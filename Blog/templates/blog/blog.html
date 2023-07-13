@@ -19,19 +19,21 @@
 <button><a href={% url 'crear' %}>Crear nuevo post</a></button>
 {% for pt in post %}
 <div>
-    <h1>{{ pt.titulo }}</h1>
+    <p>Nuevo Post de: {{pt.autor}} </p>
+    <h3>{{ pt.titulo }}</h3>
     {% if pt.subtitulo %}
-        <h2>{{ pt.subtitulo }}</h2>
+        <h5>{{ pt.subtitulo }}</h5>
     {% endif %}
     
+    {% comment %} {% url '' pt.id %} {% endcomment %}
     <button>
-        {% comment %} <a href={% url '' pt.id %}>Ver mas</a> {% endcomment %}
+        <a href="#">Ver mas</a>
     </button>
     <button>
-        {% comment %} <a href={% url '' pt.id %}>Modificar</a> {% endcomment %}
+        <a href="#">Modificar</a>
     </button>
     <button>
-        {% comment %} <a href={% url '' pt.id %}>Eliminar</a> {% endcomment %}
+        <a href="#">Eliminar</a>
     </button>
 </div>
 {% endfor %}
