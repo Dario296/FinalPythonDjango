@@ -6,10 +6,10 @@
 {% endblock head_title %}
 
 {% block contenido %}
-<form action={% url 'crear' %}, method= "post">
+<form action="", method= "post" enctype='multipart/form-data'>
     {% csrf_token %}
-    {{ form }}
-    {{ form.media }}
+    {{ formulario }}
+    {{ formulario.media }}
     <button>Publicar</button>
 </form>
 {% endblock contenido %}

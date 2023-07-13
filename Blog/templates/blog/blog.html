@@ -16,21 +16,25 @@
 
 {% block contenido %}
 {% if post %}
+<button><a href={% url 'crear' %}>Crear nuevo post</a></button>
 {% for pt in post %}
-<li>
-    {{ pt.titulo }}
+<div>
+    <h1>{{ pt.titulo }}</h1>
+    {% if pt.subtitulo %}
+        <h2>{{ pt.subtitulo }}</h2>
+    {% endif %}
+    
     <button>
-        <a href={% url '' pt.id %}>Ver mas</a>
+        {% comment %} <a href={% url '' pt.id %}>Ver mas</a> {% endcomment %}
     </button>
     <button>
-        <a href={% url '' pt.id %}>Modificar</a>
+        {% comment %} <a href={% url '' pt.id %}>Modificar</a> {% endcomment %}
     </button>
     <button>
-        <a href={% url '' pt.id %}>Eliminar</a>
+        {% comment %} <a href={% url '' pt.id %}>Eliminar</a> {% endcomment %}
     </button>
-</li>
+</div>
 {% endfor %}
-
 {% else %}
 <h2>No hay datos cargados</h2>
 <button><a href={% url 'crear' %}>Crear nuevo post</a></button>
