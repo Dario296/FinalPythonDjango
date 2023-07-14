@@ -7,7 +7,7 @@
 
 {% block buscador %}
     <li>
-    	<form class="d-flex" action="" method="get">
+    	<form action={% url 'blog' %} class="d-flex" method="get">
     		{{form}}
     		<button class="btn btn-outline-success">Buscar</button>
     	</form>
