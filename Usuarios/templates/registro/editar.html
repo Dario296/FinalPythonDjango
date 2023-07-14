@@ -6,10 +6,13 @@
 {% endblock head_title %}
 
 {% block contenido %}
-<form action={% url 'editarPerfil' %} method= "post" enctype='multipart/form-data'>
+<form action={% url 'editar_perfil' %} method= "post" enctype='multipart/form-data'>
     {% csrf_token %}
     {{ formulario }}
     <button>Guardar Cambios</button>
 </form>
-<button><a href={% url 'editarPassword' %}>Editar contraseña</a></button>
+<button type= 'button'>
+    <a href={% url 'perfil' %}>Volver</a>
+</button>
+<button><a href={% url 'editar_password' %}>Editar contraseña</a></button>
 {% endblock contenido %}

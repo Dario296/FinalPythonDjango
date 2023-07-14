@@ -7,9 +7,9 @@
 
 {% block buscador %}
     <li>
-    	<form class="d-flex" role="search">
-    		<input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" />
-    		<button class="btn btn-outline-success" type="submit">Buscar</button>
+    	<form class="d-flex" action="" method="get">
+    		{{form}}
+    		<button class="btn btn-outline-success">Buscar</button>
     	</form>
     </li>
 {% endblock buscador %}
@@ -25,18 +25,20 @@
         <h5>{{ pt.subtitulo }}</h5>
     {% endif %}
     <button>
-        <a href={% url 'verMas' pt.id %}>Ver mas</a>
+        <a href={% url 'ver_mas' pt.id %}>Ver mas</a>
     </button>
     {% if request.user == pt.autor %}
     <button>
         <a href={% url 'modificar' pt.id %}>Modificar</a>
     </button>
     <button>
-        <a href="#">Eliminar</a>
+        <a href={% url 'eliminar' pt.id %}>Eliminar</a>
     </button>
     {% endif %}
 </div>
 {% endfor %}
+{% elif resultado %}
+<h2>{{resultado}}</h2>
 {% else %}
 <h2>No hay datos cargados</h2>
 <button><a href={% url 'crear' %}>Crear nuevo post</a></button>

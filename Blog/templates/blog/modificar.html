@@ -11,6 +11,9 @@
     {% csrf_token %}
     {{ form }}
     {{ form.media }}
-    <button>Guardar</button>
+    <button type= 'submit'>Guardar</button>
+    <button type= 'button'>
+        <a href={% url 'blog' %}>Volver</a>
+    </button>
 </form>
 {% endblock contenido %}

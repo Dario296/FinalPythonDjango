@@ -6,9 +6,12 @@
 {% endblock head_title %}
 
 {% block contenido %}
-<form action={% url 'editarPassword' %} method= "post">
+<form action={% url 'editar_password' %} method= "post">
     {% csrf_token %}
     {{ form }}
-    <button>Guardar Cambios</button>
+    <button type= 'submit'>Guardar Cambios</button>
+    <button type= 'button'>
+        <a href={% url 'perfil' %}>Cancelar</a>
+    </button>
 </form>
 {% endblock contenido %}

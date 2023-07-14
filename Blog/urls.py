@@ -4,8 +4,9 @@ from Blog import views
 urlpatterns = [
     path("", views.inicio, name = 'inicio'),
     path("nosotros/", views.nosotros, name = 'nosotros'),
-    path("blog/", views.listar.as_view(), name = 'blog'),
+    path("blog/", views.Listar.as_view(), name = 'blog'),
     path("blog/crear/", views.crear, name = 'crear'),
-    path("blog/verMas/<int:pk>/", views.verMas.as_view(), name = 'verMas'),
-    path("blog/modificar/<int:pk>/", views.modificar.as_view(), name = 'modificar'),
+    path("blog/ver_mas/<int:pk>/", views.VerMas.as_view(), name = 'ver_mas'),
+    path("blog/modificar/<int:pk>/", views.Modificar.as_view(), name = 'modificar'),
+    path("blog/eliminar/<int:pk>/", views.Eliminar.as_view(), name = 'eliminar'),
 ]

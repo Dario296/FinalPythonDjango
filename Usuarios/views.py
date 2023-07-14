@@ -46,7 +46,7 @@ def verPerfil(request):
     return render(request, 'registro/perfil.html')
 
 @login_required
-def editarPerfil(request): 
+def editar_perfil(request): 
     info_extra_user = request.user.infoextra
     if request.method == 'POST':
         formulario = EditarPerfil(request.POST, request.FILES, instance=request.user)
@@ -69,7 +69,7 @@ def editarPerfil(request):
     return render(request, 'registro/editar.html', {'formulario': formulario})
 
 class CambiarPassword(LoginRequiredMixin, View):
-    template_name = 'registro/editarPass.html'
+    template_name = 'registro/editar_pass.html'
     form_class = CambiarPasswordForm
     success_url = reverse_lazy('perfil')
 

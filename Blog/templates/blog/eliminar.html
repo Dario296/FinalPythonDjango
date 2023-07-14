@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head_title %}
+<title>Eliminar</title>
+{% endblock head_title %}
+
+{% block contenido %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <p>Confirma el borrado de {{post.titulo}}</p>
+    <button type= 'submit'>Confirmar</button>
+    <button type= 'button'>
+        <a href={% url 'blog' %}>Cancelar</a>
+    </button>
+</form>
+{% endblock contenido %}

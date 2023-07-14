@@ -15,7 +15,8 @@
     <p> {{post.cuerpo | safe}} </p>   
     {% if post.imagen %}
         <img src={{ post.imagen.url }} alt="Imagen" height='300px'>
-    {% endif %} 
+    {% endif %}
+    <p>{{post.fecha}}</p>
     <button>
         <a href={% url 'blog' %}>Volver</a>
     </button>
