@@ -9,9 +9,9 @@
 <form action={% url 'eliminar' post.id%} method="POST">
     {% csrf_token %}
     <p>Confirma el borrado de {{post.titulo}}</p>
-    <button type= 'submit'>Confirmar</button>
-    <button type= 'button'>
-        <a href={% url 'blog' %}>Cancelar</a>
+    <button class= "input" type= 'submit'>Confirmar</button>
+    <button class= "volver" type= 'button'>
+        <a class= "navbar-brand" href={% url 'blog' %}>Cancelar</a>
     </button>
 </form>
 {% endblock contenido %}

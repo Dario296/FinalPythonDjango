@@ -6,9 +6,9 @@
 {% endblock head_title %}
 
 {% block contenido %}
-<form action={% url 'registrarse' %} method= "post">
+<form class="editar" action={% url 'registrarse' %} method= "post">
     {% csrf_token %}
     {{ formulario }}
-    <button>Registrarse</button>
+    <button class="input">Registrarse</button>
 </form>
 {% endblock contenido %}

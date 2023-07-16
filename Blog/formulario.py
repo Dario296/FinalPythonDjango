@@ -8,7 +8,8 @@ class CrearPublicacion(forms.Form):
     imagen = forms.ImageField(required=False)
     
 class MostrarPost(forms.Form):
-    nombre = forms.CharField(max_length=20, required=False, label="", widget= forms.TextInput(attrs={
+    nombre = forms.CharField(max_length=20, required=False, label="", widget= forms.TextInput(
+        attrs={
         'placeholder': 'Buscar Titulo',
-        'class': "form-control me-2"
+        'class': "form-control me-2",
     }))

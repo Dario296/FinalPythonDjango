@@ -7,13 +7,13 @@
 
 {% block contenido %}
 <h2>Modificar</h2>
-<form action={% url 'modificar' post.id %} method= "post" enctype='multipart/form-data'>
+<form class="editar" action={% url 'modificar' post.id %} method= "post" enctype='multipart/form-data'>
     {% csrf_token %}
     {{ form }}
     {{ form.media }}
-    <button type= 'submit'>Guardar</button>
-    <button type= 'button'>
-        <a href={% url 'blog' %}>Volver</a>
+    <button class= "input" type= 'submit'>Guardar</button>
+    <button class= "volver" type= 'button'>
+        <a class= "navbar-brand" href={% url 'blog' %}>Volver</a>
     </button>
 </form>
 {% endblock contenido %}

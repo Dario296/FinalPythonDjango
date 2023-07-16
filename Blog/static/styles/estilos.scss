@@ -1,3 +1,13 @@
+.body{
+	position: relative;
+	min-height: 100vh;
+	padding-bottom: 6em;
+}
+
+.inicio{
+	background-image: linear-gradient(#afafb4d2, #c4c4c4);
+}
+
 .logo img {
     width: 60px;
     height: 60px;
@@ -6,15 +16,93 @@
 .findepagina {
 	text-align: center;
 	width: 100%;
-	background-image: linear-gradient(#c0bcbc, #795f5fd2);
+	background-image: linear-gradient(#c4c4c4, #5e5799d2);
+	position: absolute;
+	bottom: 0;
 
     .redes {
-		font-size: 25px;
+		font-size: 20px;
 	}
 
 	.iconos {
 		display: grid;
 		grid-template-columns: 75px 75px 75px;
 		justify-content: center;
+		padding-bottom: 10px;
 	}
+}
+
+.crearpost{
+	border-radius: 5px;
+	background: #02410dd2;
+	color: #fff;
+	padding: 3px 14px;
+	font-weight: bold;
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.input{
+	border-radius: 5px;
+	margin: 10px 0;
+	background: #02e258;
+	color: #fff;
+	padding: 3px 14px;
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+	font-size: 15px;
+}
+
+.volver {
+	border-radius: 5px;
+	margin: 10px 0;
+	background: #080241d2;
+	color: #fff;
+	padding: 3px 14px;
+	font-weight: bold;
+	border: none;
+	cursor: pointer;
+	font-size: 15px;
+}
+.vermas{
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	font-size: 25px;   
+	    }
+.modificar{
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	font-size: 100px;  
+}
+
+.contacto{
+    margin-top: 15px;
+    margin-bottom: 15px;
+	font-size: 20px;
+}
+
+.editar{
+	display: grid;
+    grid-template-columns: min-content;
+	margin-top: 15px;
+    margin-bottom: 5px;
+	padding: 15px;
+	font-size: 18px;
+}
+
+.perfil{
+	margin-right: 70px;
+	text-align: center;
+}
+
+.sobrenosotros{
+	padding: 15px;
+}
+
+.avatar{
+	width: 350px;
+	height: 350px;
 }

@@ -16,23 +16,25 @@
 
 {% block contenido %}
 {% if post %}
-<button><a href={% url 'crear' %}>Crear nuevo post</a></button>
+<div class="vermas">
+    <button class= "crearpost"><a class= "navbar-brand" href={% url 'crear' %}>Crear nuevo post</a></button>
+</div>
 {% for pt in post %}
-<div>
+<div class="vermas">
     <p>Nuevo Post de: {{pt.autor}} </p>
     <h3>{{ pt.titulo }}</h3>
     {% if pt.subtitulo %}
         <h5>{{ pt.subtitulo }}</h5>
     {% endif %}
-    <button>
-        <a href={% url 'ver_mas' pt.id %}>Ver mas</a>
+    <button class= "volver">
+        <a class= "navbar-brand" href={% url 'ver_mas' pt.id %}>Ver mas</a>
     </button>
     {% if request.user == pt.autor %}
-    <button>
-        <a href={% url 'modificar' pt.id %}>Modificar</a>
+    <button class= "volver">
+        <a class= "navbar-brand" href={% url 'modificar' pt.id %}>Modificar</a>
     </button>
-    <button>
-        <a href={% url 'eliminar' pt.id %}>Eliminar</a>
+    <button class= "volver">
+        <a class= "navbar-brand" href={% url 'eliminar' pt.id %}>Eliminar</a>
     </button>
     {% endif %}
 </div>
@@ -41,6 +43,6 @@
 <h2>{{resultado}}</h2>
 {% else %}
 <h2>No hay datos cargados</h2>
-<button><a href={% url 'crear' %}>Crear nuevo post</a></button>
+<button class= "crearpost"><a class= "navbar-brand" href={% url 'crear' %}>Crear nuevo post</a></button>
 {% endif %}
 {% endblock contenido %}
