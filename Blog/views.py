@@ -25,7 +25,9 @@ class Listar(ListView):
         if form.is_valid():
             nombre_a_buscar = form.cleaned_data['nombre']
             listado_de_post = Post.objects.filter(titulo__icontains = nombre_a_buscar)
-            if listado_de_post:
+            if Post.objects.count() == 0:
+                return render(request, self.template_name, {'form': self.form_class, 'post': None})
+            elif listado_de_post:
                 return render(request, self.template_name, {'form': self.form_class, 'post': listado_de_post})
             else:
                 return render(request, self.template_name, {'form': self.form_class, 'resultado': "No se encontraron resultados para la búsqueda en el blog..."})
