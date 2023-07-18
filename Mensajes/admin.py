@@ -1,3 +1,5 @@
 from django.contrib import admin
+from Mensajes.models import Mensaje, Hilo
 
-# Register your models here.
+admin.site.register(Mensaje)
+admin.site.register(Hilo)
